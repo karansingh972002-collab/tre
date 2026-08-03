@@ -1,0 +1,90 @@
+═══════════════════════════════════════════════════════════════
+   FIX "An error occurred during registration" ERROR
+═══════════════════════════════════════════════════════════════
+
+PROBLEM: DATABASE_URL in .env.local is a PLACEHOLDER (db.xxxx)
+
+═══════════════════════════════════════════════════════════════
+   QUICKEST FIX (5 MINUTES)
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Get FREE Supabase Database
+→ Go to: https://supabase.com
+→ Sign up (free)
+→ Create project (wait 2 min)
+→ Settings → Database → Connection string (URI)
+→ Copy the URL
+
+STEP 2: Update .env.local
+→ Open: .env.local
+→ Line 9: DATABASE_URL="..."
+→ Paste YOUR Supabase URL
+→ Save
+
+STEP 3: Setup Database (run these commands)
+→ npx prisma db push
+→ npm run db:seed
+
+STEP 4: Restart Server
+→ Ctrl+C (stop server)
+→ npm run dev (start server)
+
+STEP 5: Test Registration
+→ http://localhost:3001/auth/register
+→ Fill form → Create Account
+→ Should work! ✓
+
+═══════════════════════════════════════════════════════════════
+   AUTOMATED SETUP (EASIEST)
+═══════════════════════════════════════════════════════════════
+
+Double-click: SETUP-DATABASE-QUICK.bat
+
+It will guide you through everything!
+
+═══════════════════════════════════════════════════════════════
+   ALTERNATIVE: Local PostgreSQL
+═══════════════════════════════════════════════════════════════
+
+If you have PostgreSQL installed:
+
+Double-click: USE-LOCAL-DATABASE.bat
+
+Or manually:
+1. Open .env.local
+2. Change line 9 to:
+   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/investment_db"
+3. Run: npx prisma db push
+4. Run: npm run db:seed
+5. Restart server
+
+═══════════════════════════════════════════════════════════════
+   VERIFY IT WORKED
+═══════════════════════════════════════════════════════════════
+
+✓ .env.local has REAL database URL (not db.xxxx)
+✓ Command "npx prisma db push" succeeds
+✓ Registration page works without error
+✓ Can create new account
+✓ Redirects to dashboard after registration
+
+═══════════════════════════════════════════════════════════════
+   TEST CREDENTIALS (After seeding)
+═══════════════════════════════════════════════════════════════
+
+Email: user@test.com
+Password: User@123
+
+═══════════════════════════════════════════════════════════════
+   NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+Read: FIX-REGISTRATION-NOW.md (detailed guide)
+
+Or use these helper scripts:
+• SETUP-DATABASE-QUICK.bat     - Interactive setup
+• USE-LOCAL-DATABASE.bat        - Local PostgreSQL setup
+• CHECK-SETUP.bat               - Verify configuration
+• FIX-CHUNK-ERROR.bat           - Fix build issues
+
+═══════════════════════════════════════════════════════════════

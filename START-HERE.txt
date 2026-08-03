@@ -1,0 +1,132 @@
+================================================================================
+           PREMIUM INVESTMENT PLATFORM - SETUP INSTRUCTIONS
+================================================================================
+
+PROBLEM: Getting "Connection Refused" at localhost:3000?
+REASON: The server is not running yet. You need to install and start it.
+
+================================================================================
+                        FOLLOW THESE STEPS
+================================================================================
+
+STEP 1: INSTALL DEPENDENCIES (Currently Running)
+-------------------------------------------------
+The installation is running in the background right now.
+
+To check if it's done, look in your terminal for:
+  "added XXX packages"
+
+This takes 5-10 minutes depending on your internet speed.
+
+If it's stuck, press Ctrl+C and run again:
+  npm install
+
+
+STEP 2: CREATE ENVIRONMENT FILE
+---------------------------------
+Run this command:
+  copy .env.local.example .env.local
+
+This creates your configuration file.
+
+
+STEP 3: EDIT .env.local FILE  
+-----------------------------
+Open .env.local in Notepad and make sure these lines exist:
+
+  DATABASE_URL="postgresql://postgres:postgres@localhost:5432/investment_db"
+  JWT_SECRET=my-secret-key-123456789
+  JWT_REFRESH_SECRET=my-refresh-secret-123456789
+
+Save and close.
+
+
+STEP 4: GENERATE PRISMA
+-------------------------
+Run:
+  npm run db:generate
+
+
+STEP 5: START THE SERVER
+--------------------------
+Run:
+  npm run dev
+
+Wait until you see:
+  "✓ Ready in X seconds"
+  "- Local: http://localhost:3000"
+
+
+STEP 6: OPEN BROWSER
+---------------------
+Go to: http://localhost:3000
+
+You should see the login page!
+
+
+================================================================================
+                      DEFAULT LOGIN CREDENTIALS
+================================================================================
+
+After database seeding (optional), you can login with:
+
+  Email: user@test.com
+  Password: User@123
+
+Or admin account:
+  Email: admin@investpro.com
+  Password: Admin@123
+
+
+================================================================================
+                         TROUBLESHOOTING
+================================================================================
+
+Q: npm install is stuck?
+A: Press Ctrl+C and run: npm install --legacy-peer-deps
+
+Q: Port 3000 is busy?
+A: Use different port: set PORT=3001 && npm run dev
+
+Q: Database errors?
+A: You can skip database setup for now. The UI will still work.
+
+Q: How do I know if server is running?
+A: You'll see "✓ Ready" message and the terminal will stay open.
+
+Q: Can't find npm command?
+A: Install Node.js from https://nodejs.org
+
+
+================================================================================
+                        QUICK COMMAND REFERENCE
+================================================================================
+
+Install dependencies:        npm install
+Start dev server:            npm run dev
+Generate Prisma:             npm run db:generate
+Setup database:              npx prisma db push
+Seed test data:              npm run db:seed
+Open database GUI:           npm run db:studio
+
+
+================================================================================
+                          CURRENT STATUS
+================================================================================
+
+[X] Project files created
+[ ] Dependencies installed  <-- CURRENTLY RUNNING IN BACKGROUND
+[ ] Environment configured
+[ ] Prisma generated
+[ ] Server started
+[ ] Browser opened
+
+Next step: Wait for npm install to complete, then continue with Step 2.
+
+
+================================================================================
+
+💡 TIP: Keep this terminal window open after starting "npm run dev"
+       Open a new terminal for other commands.
+
+================================================================================

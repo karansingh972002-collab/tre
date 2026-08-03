@@ -1,0 +1,149 @@
+╔══════════════════════════════════════════════════════════════╗
+║           🚀 QUICK START - GET BACKEND RUNNING               ║
+╚══════════════════════════════════════════════════════════════╝
+
+Follow these 5 simple steps:
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 1: Get Database (Choose ONE option)                    │
+└──────────────────────────────────────────────────────────────┘
+
+Option A: Supabase (Easiest - 5 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Go to: https://supabase.com
+2. Sign up (free)
+3. Create new project: "investpro"
+4. Wait 2 minutes for setup
+5. Go to Settings → Database
+6. Copy "Connection string" (URI format)
+7. It looks like:
+   postgresql://postgres:PASSWORD@db.xxx.supabase.co:5432/postgres
+
+Option B: Local PostgreSQL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Install PostgreSQL from postgresql.org
+2. Create database:
+   psql -U postgres
+   CREATE DATABASE investment_db;
+3. Your URL:
+   postgresql://postgres:your_password@localhost:5432/investment_db
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 2: Update .env.local                                   │
+└──────────────────────────────────────────────────────────────┘
+
+Open file: .env.local
+
+Find this line:
+  DATABASE_URL="postgresql://postgres:postgres@db.xxxx.supabase.co:5432/postgres"
+
+Replace with YOUR connection string from Step 1
+
+Example:
+  DATABASE_URL="postgresql://postgres:MyPass123@db.abc.supabase.co:5432/postgres"
+
+Save the file!
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 3: Run Automated Setup                                 │
+└──────────────────────────────────────────────────────────────┘
+
+Double-click: SETUP-BACKEND.bat
+
+This will:
+  ✓ Install all dependencies
+  ✓ Generate Prisma client
+  ✓ Create database tables
+  ✓ Seed test data
+
+Wait for: "SETUP COMPLETE!" message
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 4: Start the Server                                    │
+└──────────────────────────────────────────────────────────────┘
+
+Run:
+  npm run dev
+
+You'll see:
+  ✓ Ready on http://localhost:3000
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 5: Test the Website                                    │
+└──────────────────────────────────────────────────────────────┘
+
+1. Open: http://localhost:3000
+2. Click "Login"
+3. Use test account:
+   Email:    user@test.com
+   Password: User@123
+4. You're in the dashboard!
+
+Test Features:
+  ✓ Click "Recharge" - Add money to wallet
+  ✓ Click "Withdraw" - Request withdrawal
+  ✓ Click "Channels" - See community links
+  ✓ Click "Support" - Create support ticket
+  ✓ Go to "Plans" - Invest in VIP plan
+
+═══════════════════════════════════════════════════════════════
+                     🎉 YOU'RE DONE!
+═══════════════════════════════════════════════════════════════
+
+Your website is now fully functional with:
+  ✅ Real database
+  ✅ Working authentication
+  ✅ Wallet system
+  ✅ Recharge & Withdraw
+  ✅ Support tickets
+  ✅ Investment plans
+  ✅ Referral system
+  ✅ Notifications
+
+═══════════════════════════════════════════════════════════════
+                 ⚠️  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+Problem: Can't connect to database
+Solution: Check DATABASE_URL in .env.local is correct
+
+Problem: "Prisma Client not generated"
+Solution: Run: npx prisma generate
+
+Problem: Tables don't exist
+Solution: Run: npx prisma db push
+
+Problem: Can't login
+Solution: Run: npm run db:seed (creates test users)
+
+Problem: Port 3000 in use
+Solution: Close other apps using port 3000
+
+═══════════════════════════════════════════════════════════════
+                    📚 DOCUMENTATION
+═══════════════════════════════════════════════════════════════
+
+Read these files for more info:
+
+  BACKEND-SETUP.md         - Detailed setup guide
+  API-DOCUMENTATION.md     - All API endpoints
+  BACKEND-COMPLETE.txt     - What's been created
+  README.md                - Full project overview
+
+═══════════════════════════════════════════════════════════════
+                   👤 TEST ACCOUNTS
+═══════════════════════════════════════════════════════════════
+
+Regular User:
+  Email:    user@test.com
+  Password: User@123
+
+Admin User:
+  Email:    admin@investpro.com
+  Password: Admin@123
+
+═══════════════════════════════════════════════════════════════
+
+That's it! Your backend is running! 🚀
+
+Open http://localhost:3000 and start testing!

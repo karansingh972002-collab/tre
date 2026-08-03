@@ -1,0 +1,185 @@
+╔══════════════════════════════════════════════════════════════╗
+║   ❌ ERROR: "An error occurred during registration"         ║
+╚══════════════════════════════════════════════════════════════╝
+
+🎯 ROOT CAUSE:
+Your DATABASE_URL in .env.local is still a PLACEHOLDER:
+  postgresql://postgres:postgres@db.xxxx.supabase.co:5432/postgres
+                                      ^^^^
+                                   NOT REAL!
+
+Backend can't connect to database = Registration fails
+
+═══════════════════════════════════════════════════════════════
+                  ⚡ QUICK FIX (5 Minutes)
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Get Real Database
+━━━━━━━━━━━━━━━━━━━━━━━━
+Option A - Supabase (Recommended):
+  1. Go to: https://supabase.com
+  2. Sign up (FREE!)
+  3. Create project: "investpro"
+  4. Wait 2 minutes
+  5. Go to Settings → Database
+  6. Copy "Connection string" (URI)
+
+You'll get something like:
+  postgresql://postgres:MyPass@db.abc123.supabase.co:5432/postgres
+
+STEP 2: Update .env.local
+━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open: .env.local
+2. Find line 9: DATABASE_URL=...
+3. Replace with YOUR Supabase URL
+4. Save file
+
+STEP 3: Setup Database
+━━━━━━━━━━━━━━━━━━━━━━━━
+Run these commands:
+
+  npx prisma db push
+  npm run db:seed
+
+STEP 4: Test Registration
+━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Go to: http://localhost:3000/auth/register
+  2. Fill form
+  3. Click "Create Account"
+  4. ✅ Should work now!
+
+═══════════════════════════════════════════════════════════════
+              🤖 AUTOMATED FIX (Even Easier!)
+═══════════════════════════════════════════════════════════════
+
+Double-click this file:
+  SETUP-DATABASE-NOW.bat
+
+It will:
+  1. Ask for your Supabase URL
+  2. Update .env.local automatically
+  3. Create all database tables
+  4. Add test data
+  5. Tell you when ready!
+
+═══════════════════════════════════════════════════════════════
+                    🔍 VERIFY SETUP
+═══════════════════════════════════════════════════════════════
+
+Run: CHECK-SETUP.bat
+
+This checks:
+  ✓ Node.js installed
+  ✓ Dependencies installed
+  ✓ Prisma generated
+  ✓ DATABASE_URL configured
+  ✓ .env.local exists
+
+═══════════════════════════════════════════════════════════════
+                 ❓ WHICH DATABASE TO USE?
+═══════════════════════════════════════════════════════════════
+
+Supabase (Best for beginners):
+  ✅ Free tier available
+  ✅ No installation needed
+  ✅ Cloud hosted
+  ✅ Instant setup
+  ✅ Automatic backups
+  👉 Recommended!
+
+Local PostgreSQL:
+  ✅ Full control
+  ✅ No internet needed
+  ❌ Requires installation
+  ❌ Manual setup
+  ⚠️  Advanced users only
+
+SQLite (Testing only):
+  ✅ Instant setup
+  ✅ No configuration
+  ❌ Not for production
+  ❌ Limited features
+
+═══════════════════════════════════════════════════════════════
+                  ✅ EXPECTED RESULT
+═══════════════════════════════════════════════════════════════
+
+After fixing DATABASE_URL:
+
+1. Registration form loads ✓
+2. Fill form and submit ✓
+3. Shows success message ✓
+4. Redirects to dashboard ✓
+5. You're logged in! ✓
+6. Wallet shows ₹0 ✓
+7. Welcome notification ✓
+
+═══════════════════════════════════════════════════════════════
+              🆘 STILL NOT WORKING?
+═══════════════════════════════════════════════════════════════
+
+Check These:
+
+1. DATABASE_URL is REAL (not placeholder)
+   ✓ Should have actual domain, not "xxxx"
+   ✓ Should have your password, not "postgres"
+
+2. Server is running
+   ✓ Run: npm run dev
+   ✓ Should see: "Ready on http://localhost:3000"
+
+3. Using correct URL
+   ✓ Use: http://localhost:3000
+   ✗ Not: http://localhost:8080 (preview only)
+
+4. Database tables exist
+   ✓ Run: npx prisma db push
+   ✓ Should say "Your database is now in sync"
+
+5. Check browser console (F12)
+   ✓ Look for red error messages
+   ✓ Note what the error says
+
+═══════════════════════════════════════════════════════════════
+                   📞 ERROR MESSAGES
+═══════════════════════════════════════════════════════════════
+
+"Can't reach database server"
+  → DATABASE_URL is wrong
+  → Check Supabase URL is correct
+
+"Invalid `prisma.user.create()`"
+  → Tables don't exist
+  → Run: npx prisma db push
+
+"User already exists"
+  → Email is taken (expected if retrying)
+  → Use different email
+
+"An error occurred during registration"
+  → Database not connected
+  → Fix DATABASE_URL (this guide!)
+
+═══════════════════════════════════════════════════════════════
+                  📚 MORE HELP
+═══════════════════════════════════════════════════════════════
+
+Read these files:
+  FIX-REGISTRATION-ERROR.md    - Detailed fix guide
+  BACKEND-SETUP.md             - Complete setup guide
+  QUICK-START-BACKEND.txt      - Quick reference
+
+Run these scripts:
+  SETUP-DATABASE-NOW.bat       - Automated database setup
+  CHECK-SETUP.bat              - Verify configuration
+  SETUP-BACKEND.bat            - Complete backend setup
+
+═══════════════════════════════════════════════════════════════
+
+        🎯 SOLUTION: Setup your database!
+
+   Double-click: SETUP-DATABASE-NOW.bat
+
+   Or manually update DATABASE_URL in .env.local
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,107 @@
+================================================================================
+    COMPLETE PRODUCTION VERSION - COPY AND RUN THESE COMMANDS
+================================================================================
+
+IMPORTANT: Run these commands IN ORDER after npm install completes
+
+
+STEP 1: WAIT FOR INSTALLATION
+------------------------------
+The command "npm install --force" is running in the background.
+WAIT until you see: "added XXX packages"
+
+If it's stuck for more than 10 minutes, press Ctrl+C and retry.
+
+
+STEP 2: SETUP DATABASE
+----------------------
+Copy and paste these commands one by one:
+
+npx prisma generate
+
+npx prisma db push
+
+npm run db:seed
+
+
+STEP 3: START SERVER
+--------------------
+npm run dev
+
+
+STEP 4: OPEN BROWSER
+--------------------
+http://localhost:3000
+
+
+================================================================================
+                            THAT'S IT!
+================================================================================
+
+DEFAULT LOGIN CREDENTIALS:
+
+Admin Account:
+  Email: admin@investpro.com
+  Password: Admin@123
+
+User Account:
+  Email: user@test.com
+  Password: User@123
+
+
+================================================================================
+                        PRODUCTION BUILD
+================================================================================
+
+To build for production:
+
+npm run build
+npm start
+
+
+================================================================================
+                        DEPLOY TO VERCEL
+================================================================================
+
+npm install -g vercel
+vercel login
+vercel
+
+
+================================================================================
+                        ALL COMMANDS (COPY/PASTE)
+================================================================================
+
+# Complete Setup (after npm install finishes)
+npx prisma generate
+npx prisma db push
+npm run db:seed
+npm run dev
+
+# Production Build
+npm run build
+npm start
+
+# Deploy to Vercel
+npm install -g vercel
+vercel
+
+# View Database
+npm run db:studio
+
+# Run Tests
+npm test
+
+
+================================================================================
+                     QUICK DEMO (While Installing)
+================================================================================
+
+If you want to see something NOW while installation is running:
+
+node simple-server.js
+
+Then open: http://localhost:3000
+
+
+================================================================================
