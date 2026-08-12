@@ -1,132 +1,65 @@
 ================================================================================
-           PREMIUM INVESTMENT PLATFORM - SETUP INSTRUCTIONS
+                         ALPHAMINE WEBSITE - START HERE
 ================================================================================
 
-PROBLEM: Getting "Connection Refused" at localhost:3000?
-REASON: The server is not running yet. You need to install and start it.
+The functional website is now the production server in this folder.
+
+It includes:
+- Home page
+- Register and login
+- VIP and SVIP plan listing
+- Wallet recharge with generated UTR
+- Plan purchase from wallet balance
+- Withdraw requests
+- Referral code and referral link
+- Support form
+- Payment complaint form
+- Admin panel for plans, QR/payment details, transactions, complaints, and users
 
 ================================================================================
-                        FOLLOW THESE STEPS
+                             RUN THE WEBSITE
 ================================================================================
 
-STEP 1: INSTALL DEPENDENCIES (Currently Running)
--------------------------------------------------
-The installation is running in the background right now.
+From this folder, run:
 
-To check if it's done, look in your terminal for:
-  "added XXX packages"
-
-This takes 5-10 minutes depending on your internet speed.
-
-If it's stuck, press Ctrl+C and run again:
-  npm install
-
-
-STEP 2: CREATE ENVIRONMENT FILE
----------------------------------
-Run this command:
-  copy .env.local.example .env.local
-
-This creates your configuration file.
-
-
-STEP 3: EDIT .env.local FILE  
------------------------------
-Open .env.local in Notepad and make sure these lines exist:
-
-  DATABASE_URL="postgresql://postgres:postgres@localhost:5432/investment_db"
-  JWT_SECRET=my-secret-key-123456789
-  JWT_REFRESH_SECRET=my-refresh-secret-123456789
-
-Save and close.
-
-
-STEP 4: GENERATE PRISMA
--------------------------
-Run:
-  npm run db:generate
-
-
-STEP 5: START THE SERVER
---------------------------
-Run:
   npm run dev
 
-Wait until you see:
-  "✓ Ready in X seconds"
-  "- Local: http://localhost:3000"
+Then open:
 
+  http://localhost:8080
 
-STEP 6: OPEN BROWSER
----------------------
-Go to: http://localhost:3000
+Admin page:
 
-You should see the login page!
+  http://localhost:8080/#admin
 
+Default admin password:
 
-================================================================================
-                      DEFAULT LOGIN CREDENTIALS
-================================================================================
+  admin123
 
-After database seeding (optional), you can login with:
+To use a different port:
 
-  Email: user@test.com
-  Password: User@123
-
-Or admin account:
-  Email: admin@investpro.com
-  Password: Admin@123
-
+  PORT=8090 npm run dev
 
 ================================================================================
-                         TROUBLESHOOTING
+                                DATA STORAGE
 ================================================================================
 
-Q: npm install is stuck?
-A: Press Ctrl+C and run: npm install --legacy-peer-deps
+The website saves live data here:
 
-Q: Port 3000 is busy?
-A: Use different port: set PORT=3001 && npm run dev
+  data/production-db.json
 
-Q: Database errors?
-A: You can skip database setup for now. The UI will still work.
-
-Q: How do I know if server is running?
-A: You'll see "✓ Ready" message and the terminal will stay open.
-
-Q: Can't find npm command?
-A: Install Node.js from https://nodejs.org
-
+You do not need Prisma, Supabase, PostgreSQL, or environment setup for the local
+functional version.
 
 ================================================================================
-                        QUICK COMMAND REFERENCE
+                              QUICK TEST FLOW
 ================================================================================
 
-Install dependencies:        npm install
-Start dev server:            npm run dev
-Generate Prisma:             npm run db:generate
-Setup database:              npx prisma db push
-Seed test data:              npm run db:seed
-Open database GUI:           npm run db:studio
-
-
-================================================================================
-                          CURRENT STATUS
-================================================================================
-
-[X] Project files created
-[ ] Dependencies installed  <-- CURRENTLY RUNNING IN BACKGROUND
-[ ] Environment configured
-[ ] Prisma generated
-[ ] Server started
-[ ] Browser opened
-
-Next step: Wait for npm install to complete, then continue with Step 2.
-
-
-================================================================================
-
-💡 TIP: Keep this terminal window open after starting "npm run dev"
-       Open a new terminal for other commands.
+1. Open http://localhost:8080
+2. Register a new account
+3. Recharge wallet
+4. Buy a VIP or SVIP plan
+5. Open dashboard to see wallet, income, and transactions
+6. Open Admin with password admin123 to manage plans and payment settings
 
 ================================================================================

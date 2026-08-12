@@ -2,6 +2,34 @@
 
 A modern, full-featured investment membership web application with VIP/SVIP tiers, referral system, automated daily income, and comprehensive admin panel.
 
+## Working Local Version
+
+This folder now runs as a functional local website using `production-server.js`
+and `data/production-db.json`. No Prisma, Supabase, PostgreSQL, or environment
+setup is required for the local version.
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:8080
+```
+
+Admin:
+
+```text
+http://localhost:8080/#admin
+```
+
+Default admin password:
+
+```text
+admin123
+```
+
 ## Tech Stack
 
 - **Frontend**: Next.js 15, React 18, TypeScript
